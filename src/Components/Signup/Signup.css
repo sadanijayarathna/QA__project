@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+  background: linear-gradient(120deg, #FFECC0 0%, #FFC29B 50%, #F39F9F 100%), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
   animation: bgFadeIn 1.5s ease;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .signup-form button {
-  background: linear-gradient(90deg, #a6c1ee 0%, #fbc2eb 100%);
+  background: linear-gradient(90deg, #F39F9F 0%, #B95E82 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -78,7 +78,7 @@
 }
 
 .signup-form button:hover {
-  background: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+  background: linear-gradient(90deg, #B95E82 0%, #F39F9F 100%);
   transform: translateY(-2px) scale(1.03);
 }
 

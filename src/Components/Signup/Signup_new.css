@@ -2,7 +2,7 @@
 .signup-split-bg {
   min-height: 100vh;
   width: 100vw;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FFECC0 0%, #FFC29B 25%, #F39F9F 75%, #B95E82 100%);
   background-attachment: fixed;
   display: flex;
   align-items: center;
@@ -36,7 +36,7 @@
 
 .signup-left {
   flex: 1;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #F39F9F 0%, #B95E82 100%);
   color: #fff;
   padding: 60px 50px;
   display: flex;
@@ -168,7 +168,7 @@
 }
 
 .signup-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #F39F9F 0%, #B95E82 100%);
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -177,7 +177,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 24px rgba(243, 159, 159, 0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
   min-height: 50px;
@@ -192,9 +192,9 @@
 }
 
 .signup-btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: linear-gradient(135deg, #B95E82 0%, #F39F9F 100%);
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 12px 32px rgba(243, 159, 159, 0.4);
 }
 
 .signup-btn:disabled {

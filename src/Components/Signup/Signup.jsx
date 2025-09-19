@@ -59,15 +59,15 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
     <div className="signup-split-bg">
       <div className="signup-split-container">
         <div className="signup-left">
-          <div className="company-logo">🚀 TASK MANAGER</div>
+          <div className="company-logo">🚀 TASK TRACKER</div>
           <h1>Join us today...</h1>
-          <p>Create your account to start managing tasks efficiently.<br/>Get organized and boost your productivity.</p>
-          <div className="signup-left-footer">✨ Your productivity journey starts here</div>
+          <p>Create your account to start tracking tasks effectively.<br/>Monitor progress and achieve your goals faster.</p>
+          <div className="signup-left-footer">✨ Your tracking journey starts here</div>
         </div>
         <div className="signup-right">
           <form className="signup-form" onSubmit={handleSubmit}>
             <h2>Sign Up</h2>
-            <p className="signup-desc">Create your account to get started with task management.</p>
+            <p className="signup-desc">Create your account to get started with task tracking and progress monitoring.</p>
             <div className="input-group">
               <input
                 type="email"

@@ -1,4 +1,4 @@
-# Task Manager Database Setup
+# Task Tracker Database Setup
 
 ## Step 1: Create Database
 Connect to MySQL/MariaDB and run:

@@ -2,6 +2,7 @@ com\taskmanager\repository\TaskRepository.class
 com\taskmanager\security\AuthTokenFilter.class
 com\taskmanager\security\AuthEntryPointJwt.class
 com\taskmanager\repository\UserRepository.class
+com\taskmanager\service\TaskService$1.class
 com\taskmanager\model\Task$TaskPriority.class
 com\taskmanager\dto\SignupRequest.class
 com\taskmanager\controller\AuthController.class

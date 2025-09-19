@@ -1,19 +1,19 @@
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\dto\SignupRequest.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\service\UserPrincipal.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\security\AuthEntryPointJwt.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\dto\LoginRequest.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\controller\TaskController.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\model\User.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\config\WebSecurityConfig.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\dto\MessageResponse.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\dto\TaskRequest.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\security\AuthTokenFilter.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\dto\JwtResponse.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\model\Task.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\repository\TaskRepository.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\controller\AuthController.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\service\UserDetailsServiceImpl.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\security\JwtUtils.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\TaskManagerBackendApplication.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\repository\UserRepository.java
-C:\Users\Avishka\Documents\QA_project\backend\src\main\java\com\taskmanager\service\TaskService.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\repository\UserRepository.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\dto\SignupRequest.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\dto\JwtResponse.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\security\JwtUtils.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\security\AuthEntryPointJwt.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\security\AuthTokenFilter.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\controller\AuthController.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\model\Task.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\repository\TaskRepository.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\dto\MessageResponse.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\config\WebSecurityConfig.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\model\User.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\service\TaskService.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\TaskManagerBackendApplication.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\dto\LoginRequest.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\dto\TaskRequest.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\service\UserDetailsServiceImpl.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\service\UserPrincipal.java
+C:\Users\User\Desktop\QA Finale\QA_project\QA_project\backend\src\main\java\com\taskmanager\controller\TaskController.java
