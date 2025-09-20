@@ -100,7 +100,7 @@ public class TaskService {
     
     // TDD: Feature 1 - Task Creation with Enhanced Validation
     public Task createTaskWithValidation(TaskRequest taskRequest, User user) {
-        validateTaskRequest(taskRequest);
+        validateTaskInput(taskRequest);
         return createTask(taskRequest, user);
     }
     
@@ -111,22 +111,6 @@ public class TaskService {
         
         task.setStatus(newStatus);
         return taskRepository.save(task);
-    }
-    
-    // REFACTORED: Extract validation methods for better maintainability
-    private void validateTaskRequest(TaskRequest taskRequest) {
-        validateTitle(taskRequest.getTitle());
-        // Can add more validations here in the future
-    }
-    
-    private void validateTitle(String title) {
-        if (title == null || title.trim().isEmpty()) {
-            throw new IllegalArgumentException("Task title cannot be null or empty");
-        }
-        
-        if (title.length() > 100) {
-            throw new IllegalArgumentException("Task title cannot exceed 100 characters");
-        }
     }
     
     private Task findTaskById(Long id) {
@@ -151,5 +135,122 @@ public class TaskService {
             case IN_PROGRESS -> newStatus == Task.TaskStatus.COMPLETED;
             case COMPLETED -> false; // Cannot transition from COMPLETED
         };
+    }
+    
+    // TDD Implementation: GREEN PHASE - Minimal code to make tests pass
+    
+    // TDD Implementation: RED → GREEN → REFACTOR CYCLE COMPLETE
+    
+    /**
+     * TDD Method 1: Add Task with Enhanced Validation
+     * REFACTOR PHASE: Improved implementation with better error handling
+     */
+    public Task addTask(TaskRequest taskRequest, User user) {
+        // Delegate validation to specialized method for consistency
+        validateTaskInput(taskRequest);
+        
+        // Create task with validated data
+        Task task = new Task();
+        task.setTitle(taskRequest.getTitle());
+        task.setDescription(taskRequest.getDescription());
+        task.setUser(user);
+        task.setStatus(taskRequest.getStatus() != null ? taskRequest.getStatus() : Task.TaskStatus.PENDING);
+        task.setPriority(taskRequest.getPriority() != null ? taskRequest.getPriority() : Task.TaskPriority.MEDIUM);
+        
+        if (taskRequest.getDueDate() != null) {
+            task.setDueDate(taskRequest.getDueDate());
+        }
+        
+        return taskRepository.save(task);
+    }
+    
+    /**
+     * TDD Method 2: Comprehensive Task Input Validation
+     * REFACTOR PHASE: Well-structured validation with clear error messages
+     */
+    public TaskRequest validateTaskInput(TaskRequest taskRequest) {
+        // Title validation
+        validateTitle(taskRequest.getTitle());
+        
+        // Description validation
+        validateDescription(taskRequest.getDescription());
+        
+        // Due date validation
+        validateDueDate(taskRequest.getDueDate());
+        
+        // Set defaults for null values
+        setDefaultsIfNull(taskRequest);
+        
+        // Sanitize content for security
+        sanitizeTaskContent(taskRequest);
+        
+        return taskRequest;
+    }
+    
+    // REFACTOR: Extract validation methods for single responsibility
+    
+    private void validateTitle(String title) {
+        if (title == null || title.trim().isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be null or empty");
+        }
+        
+        if (title.length() > 200) {
+            throw new IllegalArgumentException("Title cannot exceed 200 characters");
+        }
+    }
+    
+    private void validateDescription(String description) {
+        if (description != null && description.length() > 500) {
+            throw new IllegalArgumentException("Task description cannot exceed 500 characters");
+        }
+    }
+    
+    private void validateDueDate(java.time.LocalDateTime dueDate) {
+        if (dueDate != null && dueDate.isBefore(java.time.LocalDateTime.now())) {
+            throw new IllegalArgumentException("Due date cannot be in the past");
+        }
+    }
+    
+    private void setDefaultsIfNull(TaskRequest taskRequest) {
+        if (taskRequest.getPriority() == null) {
+            taskRequest.setPriority(Task.TaskPriority.MEDIUM);
+        }
+        
+        if (taskRequest.getStatus() == null) {
+            taskRequest.setStatus(Task.TaskStatus.PENDING);
+        }
+    }
+    
+    private void sanitizeTaskContent(TaskRequest taskRequest) {
+        if (taskRequest.getTitle() != null) {
+            taskRequest.setTitle(sanitizeHtml(taskRequest.getTitle()));
+        }
+        
+        if (taskRequest.getDescription() != null) {
+            taskRequest.setDescription(sanitizeHtml(taskRequest.getDescription()));
+        }
+    }
+    
+    /**
+     * Enhanced HTML sanitization with better security
+     * REFACTOR: More comprehensive sanitization logic
+     */
+    private String sanitizeHtml(String input) {
+        if (input == null || input.trim().isEmpty()) {
+            return input;
+        }
+        
+        // Remove dangerous script tags and events
+        String sanitized = input
+            // Remove script tags (case insensitive, multiline)
+            .replaceAll("(?i)<script[^>]*>.*?</script>", "")
+            .replaceAll("(?i)<script[^>]*/>", "")
+            // Remove javascript: protocols
+            .replaceAll("(?i)javascript:", "")
+            // Remove on* event handlers
+            .replaceAll("(?i)\\s*on\\w+\\s*=\\s*[\"'][^\"']*[\"']", "")
+            .replaceAll("(?i)\\s*on\\w+\\s*=\\s*[^\\s>]+", "");
+        
+        return sanitized.trim();
     }
 }

@@ -1,0 +1,331 @@
+{
+    "info": {
+        "name": "TaskManager API Collection",
+        "description": "Complete API testing collection for TaskManager application",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080"
+        },
+        {
+            "key": "jwtToken",
+            "value": ""
+        }
+    ],
+    "item": [
+        {
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Test Connection",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/test",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "auth", "test"]
+                        }
+                    }
+                },
+                {
+                    "name": "Register User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"testuser@example.com\",\n    \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/signup",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "auth", "signup"]
+                        }
+                    }
+                },
+                {
+                    "name": "Login User",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 200) {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    pm.environment.set(\"jwtToken\", jsonData.token);",
+                                    "    pm.test(\"Login successful\", function () {",
+                                    "        pm.expect(jsonData.token).to.not.be.null;",
+                                    "    });",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"password123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/signin",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "auth", "signin"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Task Management",
+            "item": [
+                {
+                    "name": "Create Task",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Complete Project Documentation\",\n    \"description\": \"Write comprehensive documentation for the TaskManager API\",\n    \"priority\": \"HIGH\",\n    \"status\": \"TODO\",\n    \"dueDate\": \"2025-09-25T10:00:00\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Tasks",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Task by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks/1",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks", "1"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Task",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Updated Task Title\",\n    \"description\": \"Updated task description with more details\",\n    \"priority\": \"MEDIUM\",\n    \"status\": \"IN_PROGRESS\",\n    \"dueDate\": \"2025-09-26T15:30:00\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks/1",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks", "1"]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Task",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks/1",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks", "1"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Tasks by Status - TODO",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks/status/TODO",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks", "status", "TODO"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Tasks by Status - IN_PROGRESS",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks/status/IN_PROGRESS",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks", "status", "IN_PROGRESS"]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Tasks by Status - COMPLETED",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks/status/COMPLETED",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks", "status", "COMPLETED"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Error Handling Tests",
+            "item": [
+                {
+                    "name": "Invalid Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"username\": \"wronguser\",\n    \"password\": \"wrongpassword\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/signin",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "auth", "signin"]
+                        }
+                    }
+                },
+                {
+                    "name": "Unauthorized Access (No Token)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks"]
+                        }
+                    }
+                },
+                {
+                    "name": "Invalid Task Data (Empty Title)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"\",\n    \"description\": \"Task with empty title\",\n    \"priority\": \"HIGH\",\n    \"status\": \"TODO\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks"]
+                        }
+                    }
+                },
+                {
+                    "name": "Task Not Found",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{jwtToken}}"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/tasks/999",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "tasks", "999"]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

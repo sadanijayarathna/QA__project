@@ -7,8 +7,9 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/resources/features",
-        glue = "com.taskmanager.bdd.stepdefinitions", // More specific path
-        plugin = {"pretty", "summary"}
+        glue = "com.taskmanager.bdd.steps",
+        plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber-reports/Cucumber.json"},
+        tags = "@BDD"
 )
 public class CucumberTestRunner {
 }
