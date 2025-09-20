@@ -89,7 +89,7 @@
             );
 
             // Assert: The exception message should be as expected
-            assertEquals("Task title cannot be null or empty", exception.getMessage());
+            assertEquals("Title cannot be null or empty", exception.getMessage());
             verify(taskRepository, never()).save(any(Task.class));
         }
 
@@ -105,14 +105,14 @@
                     () -> taskService.createTaskWithValidation(validTaskRequest, testUser)
             );
 
-            assertEquals("Task title cannot be null or empty", exception.getMessage());
+            assertEquals("Title cannot be null or empty", exception.getMessage());
             verify(taskRepository, never()).save(any(Task.class));
         }
 
         @Test
         void testCreateTask_WithTitleTooLong_ShouldThrowException() {
-            // Given: Task request with title longer than 100 characters
-            String longTitle = "a".repeat(101);
+            // Given: Task request with title longer than 200 characters
+            String longTitle = "a".repeat(201);
             validTaskRequest.setTitle(longTitle);
 
             // When & Then: Should throw IllegalArgumentException
@@ -121,7 +121,7 @@
                     () -> taskService.createTaskWithValidation(validTaskRequest, testUser)
             );
 
-            assertEquals("Task title cannot exceed 100 characters", exception.getMessage());
+            assertEquals("Title cannot exceed 200 characters", exception.getMessage());
             verify(taskRepository, never()).save(any(Task.class));
         }
 

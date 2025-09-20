@@ -39,15 +39,19 @@ public class TaskIntegrationTest {
 
     @BeforeEach
     void setUp() {
-        // Clean up database
-        taskRepository.deleteAll();
-        userRepository.deleteAll();
-
-        // Create test user
+        // Create test user first (this will trigger schema creation if needed)
         testUser = new User();
         testUser.setUsername("integrationtestuser");
         testUser.setEmail("integration@test.com");
         testUser.setPassword("password123");
+        
+        // Clean up database after schema is guaranteed to exist
+        try {
+            taskRepository.deleteAll();
+            userRepository.deleteAll();
+        } catch (Exception e) {
+            // Ignore cleanup errors during schema creation
+        }
         testUser = userRepository.save(testUser);
     }
 
