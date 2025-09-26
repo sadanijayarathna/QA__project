@@ -1,4 +1,4 @@
-# 🚀 Selenium Test Execution Guide
+# 🌊 Selenium Test Execution Guide
 
 ## 📋 Current Status
 Your UI testing implementation is **COMPLETE** with the following achievements:
@@ -139,7 +139,7 @@ Your UI testing requirements are **FULLY SATISFIED**:
 
 The **browser automation** aspect needs environment setup, but the **UI testing concepts and implementation** are complete and working perfectly!
 
-## 🚀 **Next Steps (Optional)**
+## 🌊 **Next Steps (Optional)**
 If you want real browser automation:
 1. Fix Selenium version compatibility
 2. Update Chrome browser to match WebDriver

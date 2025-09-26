@@ -1,8 +1,8 @@
-/* Modern Task Tracker CSS with improved layout and styling */
+/* Modern Flow Hub CSS with improved layout and styling */
 .task-bg {
   min-height: 100vh;
   width: 100vw;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: #2d5a27;
   background-attachment: fixed;
   display: flex;
   align-items: center;
@@ -35,15 +35,11 @@
 }
 
 .task-container h2 {
-  color: #2c3e50;
+  color: #90EE90;
   font-size: 2.5rem;
   margin-bottom: 30px;
   text-align: center;
   font-weight: 700;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 /* Server Status Indicator */
@@ -229,8 +225,8 @@
 }
 
 .add-task button {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: #fff;
+  background: #90EE90;
+  color: #2d5a27;
   border: none;
   border-radius: 12px;
   padding: 14px 28px;
@@ -238,7 +234,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(240, 147, 251, 0.3);
+  box-shadow: 0 8px 24px rgba(144, 238, 144, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   min-height: 48px;
@@ -379,8 +375,8 @@
 }
 
 .task-actions button {
-  background: #ffffff;
-  border: 2px solid #e9ecef;
+  background: #90EE90;
+  border: 2px solid #90EE90;
   border-radius: 10px;
   padding: 8px 16px;
   font-size: 0.9rem;
@@ -390,6 +386,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  color: #2d5a27;
 }
 
 .task-actions button:hover:not(:disabled) {
@@ -449,8 +446,8 @@
 }
 
 .edit-form button {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: #fff;
+  background: #90EE90;
+  color: #2d5a27;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;

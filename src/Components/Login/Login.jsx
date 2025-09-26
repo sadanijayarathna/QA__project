@@ -4,7 +4,6 @@ import './Login_new.css';
 const Login = ({ onLogin, onSwitchToSignup }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [remember, setRemember] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -52,15 +51,15 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
     <div className="login-split-bg">
       <div className="login-split-container">
         <div className="login-left">
-          <div className="company-logo">🚀 TASK TRACKER</div>
-          <h1>Welcome to...</h1>
-          <p>Track your progress, monitor deadlines, and achieve your goals.<br/>Stay on top of your tasks with powerful tracking tools.</p>
-          <div className="login-left-footer">✨ Your progress tracking companion</div>
+          <div className="company-logo">🌊 FLOW HUB</div>
+          <h1><span className="welcome-text">Welcome to</span><span className="main-text">...</span></h1>
+          <p>Streamline your workflow, connect your ideas, and achieve seamless productivity.<br/>Navigate through your projects with intelligent flow management.</p>
+          <div className="login-left-footer">✨ Your workflow optimization companion</div>
         </div>
         <div className="login-right">
           <form className="login-form" onSubmit={handleSubmit}>
             <h2>Login</h2>
-            <p className="login-desc">Welcome back! Login to track your tasks and monitor your progress.</p>
+            <p className="login-desc">Welcome back! Login to access your workflow hub and optimize your productivity.</p>
             <div className="input-group">
               <input
                 type="email"
@@ -77,22 +76,12 @@ const Login = ({ onLogin, onSwitchToSignup }) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="remember-row">
-              <input
-                type="checkbox"
-                id="remember"
-                checked={remember}
-                onChange={() => setRemember(!remember)}
-              />
-              <label htmlFor="remember">Remember me</label>
-            </div>
             {error && <div className="error">⚠️ {error}</div>}
             <button type="submit" className="login-btn" disabled={loading}>
-              {loading ? 'LOGGING IN...' : 'LOGIN'}
+              {loading ? 'Logging In...' : 'Log In'}
             </button>
-            <div className="login-links">
-              <span>New User? <button type="button" onClick={onSwitchToSignup} style={{background: 'none', border: 'none', color: '#007bff', textDecoration: 'underline', cursor: 'pointer'}}>Signup</button></span>
-              <span className="forgot-link"><a href="#">Forgot your password?</a></span>
+            <div className="signup-section">
+              <span>New User? <button type="button" className="signup-btn" onClick={onSwitchToSignup}>Sign Up</button></span>
             </div>
           </form>
         </div>

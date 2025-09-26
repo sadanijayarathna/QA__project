@@ -65,7 +65,7 @@ public Task createTaskWithValidation(String title, String description, Long user
 ```gherkin
 Feature: Task Management
   As a user
-  I want to manage my tasks
+  I want to manage my workflow
   So that I can stay organized
 
   Scenario: Add a new task with valid details
@@ -300,7 +300,7 @@ backend/src/test/resources/
 
 ---
 
-## 🚀 NEXT STEPS FOR ENHANCEMENT
+## 🌊 NEXT STEPS FOR ENHANCEMENT
 
 1. **Advanced Selenium Features**
    - Page Object Model (POM) implementation

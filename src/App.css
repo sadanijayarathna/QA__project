@@ -5,7 +5,7 @@ body, #root {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: linear-gradient(120deg, #FFECC0 0%, #FFC29B 50%, #F39F9F 100%), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+  background: #2d5a27;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -47,6 +47,16 @@ body, #root {
   }
 }
 
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #90EE90;
+}
+
+h2, h3, h4, h5, h6 {
+  color: #90EE90;
+}
+
 .card {
   padding: 2em;
 }
@@ -68,8 +78,8 @@ body, #root {
   position: absolute;
   top: 32px;
   right: 48px;
-  background: linear-gradient(90deg, #F39F9F 0%, #B95E82 100%);
-  color: #fff;
+  background: #90EE90;
+  color: #2d5a27;
   border: none;
   border-radius: 8px;
   padding: 0.7rem 1.5rem;
@@ -81,7 +91,7 @@ body, #root {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .logout-btn:hover {
-  background: linear-gradient(90deg, #B95E82 0%, #F39F9F 100%);
+  background: #98FB98;
   transform: scale(1.05);
 }
 
@@ -94,8 +104,8 @@ body, #root {
 }
 .switch-link button {
   background: none;
-  border: 1.5px solid #F39F9F;
-  color: #F39F9F;
+  border: 1.5px solid #90EE90;
+  color: #90EE90;
   font-weight: 500;
   cursor: pointer;
   font-size: 1.1rem;
@@ -105,8 +115,8 @@ body, #root {
   transition: color 0.2s, background 0.2s;
 }
 .switch-link button:hover {
-  color: #fff;
-  background: #F39F9F;
+  color: #2d5a27;
+  background: #90EE90;
 }
 
 /* Make forms desktop-friendly */

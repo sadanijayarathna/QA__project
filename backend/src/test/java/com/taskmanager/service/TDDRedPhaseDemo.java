@@ -13,6 +13,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 
 /**
  * TDD DEMONSTRATION: How to Start TDD Properly
@@ -52,6 +54,16 @@ public class TDDRedPhaseDemo {
     void demonstrateRedPhase() {
         // This test will show what happens when we test our current implementation
         // Let's test a method that exists but might not have all features
+        
+        // GREEN PHASE: Mock the repository to return a proper Task object
+        Task expectedTask = new Task();
+        expectedTask.setId(1L);
+        expectedTask.setTitle("Demo Task");
+        expectedTask.setDescription("Demo Description");
+        expectedTask.setUser(testUser);
+        
+        // Configure mock to return the expected task when save is called
+        when(taskRepository.save(any(Task.class))).thenReturn(expectedTask);
         
         // Act - Call the method we want to test
         Task result = taskService.addTask(validTaskRequest, testUser);

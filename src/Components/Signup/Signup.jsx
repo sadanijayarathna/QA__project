@@ -59,15 +59,15 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
     <div className="signup-split-bg">
       <div className="signup-split-container">
         <div className="signup-left">
-          <div className="company-logo">🚀 TASK TRACKER</div>
+          <div className="company-logo">🌊 FLOW HUB</div>
           <h1>Join us today...</h1>
-          <p>Create your account to start tracking tasks effectively.<br/>Monitor progress and achieve your goals faster.</p>
-          <div className="signup-left-footer">✨ Your tracking journey starts here</div>
+          <p>Create your account to start optimizing workflows seamlessly.<br/>Connect your ideas and boost productivity with intelligent flow management.</p>
+          <div className="signup-left-footer">✨ Your workflow journey starts here</div>
         </div>
         <div className="signup-right">
           <form className="signup-form" onSubmit={handleSubmit}>
             <h2>Sign Up</h2>
-            <p className="signup-desc">Create your account to get started with task tracking and progress monitoring.</p>
+            <p className="signup-desc">Create your account to get started with workflow optimization and productivity enhancement.</p>
             <div className="input-group">
               <input
                 type="email"
@@ -94,7 +94,7 @@ const Signup = ({ onSignup, onSwitchToLogin }) => {
             </div>
             {error && <div className="error">⚠️ {error}</div>}
             <button type="submit" className="signup-btn" disabled={loading}>
-              {loading ? 'SIGNING UP...' : 'SIGN UP'}
+              {loading ? 'Signing Up...' : 'Sign Up'}
             </button>
             <div className="signup-links">
                <button className='login-link' type="button" onClick={onSwitchToLogin}>Login</button>

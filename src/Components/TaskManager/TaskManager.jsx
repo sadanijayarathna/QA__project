@@ -229,7 +229,7 @@ const TaskManager = () => {
   return (
     <div className="task-bg">
       <div className="task-container">
-        <h2>Task Tracker</h2>
+        <h2>Flow Hub</h2>
         
         {/* Server Status Indicator */}
 

@@ -1,4 +1,4 @@
-# Task Tracker Database Setup
+# Flow Hub Database Setup
 
 ## Step 1: Create Database
 Connect to MySQL/MariaDB and run:

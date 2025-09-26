@@ -284,7 +284,7 @@ if (pm.response.code === 200) {
 
 ---
 
-## 🚀 **QUICK START COMMANDS**
+## 🌊 **QUICK START COMMANDS**
 
 Copy these exact commands into Postman:
 
